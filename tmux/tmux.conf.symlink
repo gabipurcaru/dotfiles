@@ -1,4 +1,3 @@
-set -g default-command "reattach-to-user-namespace -l zsh"
 # tmux display things in 256 colors
 set -g default-terminal "screen-256color"
 set -g status-utf8 on
@@ -89,12 +88,6 @@ bind -T root WheelUpPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; s
 bind -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; send-keys -M"
 bind-key -t vi-copy WheelUpPane halfpage-up
 bind-key -t vi-copy WheelDownPane halfpage-down
-
-# maximizing and restoring windows
-unbind Up
-bind Up new-window -d -n fullscreen \; swap-pane -s fullscreen.1 \; select-window -t fullscreen
-unbind Down
-bind Down last-window \; swap-pane -s fullscreen.1 \; kill-window -t fullscreen
 
 # set vi mode for copy mode
 setw -g mode-keys vi

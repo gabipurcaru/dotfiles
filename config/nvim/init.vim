@@ -270,7 +270,7 @@ nmap ;s :set invspell spelllang=en<cr>
 
 " toggle invisible characters
 set invlist
-set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+set listchars=tab:▸\ ,eol:¬,trail:.,extends:.,precedes:.
 highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
 set showbreak=↪
 nmap <leader>l :set list!<cr>
