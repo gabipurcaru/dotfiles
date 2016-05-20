@@ -6,4 +6,9 @@ if [[ `uname` == 'Linux' ]]; then
   time_left=$(upower -d | grep 'time to empty' | grep -Eo "[0-9.]+.*$" | head -n1)
 fi
 
-echo "$current_charge | $time_left remaining"
+echo -n "$current_charge"
+
+if [[ ! -z $time_left ]]; then
+  echo -n " $time_left remaining"
+fi
+echo
