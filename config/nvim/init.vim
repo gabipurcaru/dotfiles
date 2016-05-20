@@ -494,8 +494,6 @@ let g:neomake_typescript_tsc_maker = {
         \ '%C%\s%\+%m'
 \ }
 
-autocmd FileType javascript let g:neomake_javascript_enabled_makers = findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint']
-
 " CtrlP ignore patterns
 " let g:ctrlp_custom_ignore = {
 "             \ 'dir': '\.git$\|node_modules$\|bower_components$\|\.hg$\|\.svn$',
