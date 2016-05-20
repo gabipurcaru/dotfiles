@@ -12,23 +12,15 @@ Welcome to my world. This is a collection of vim, tmux, and zsh configurations. 
 
 ## Initial Setup and Installation
 
-If on OSX, you will need to install the XCode CLI tools before continuing. To do so, open a terminal and type
-
 ```bash
-xcode-select --install
-```
-
-Then, clone the dotfiles repository to your computer. This can be placed anywhere, and symbolic links will be created to reference it from your home directory.
-
-```bash
-git clone https://github.com/nicknisi/dotfiles.git ~/.dotfiles
+git clone git@github.com:gabipurcaru/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./install.sh
 ```
 
 `install.sh` will start by initializing the submodules used by this repository. Then, it will install all symbolic links into your home directory. Every file with a `.symlink` extension will be symlinked to the home directory with a `.` in front of it. As an example, `vimrc.symlink` will be symlinked in the home directory as `~/.vimrc`. Then, this script will create a `~/.vim-tmp` directory in your home directory, as this is where vim is configured to place its temporary files. Additionally, all files in the `$DOTFILES/config` directory will be symlinked to the `~/.config/` directory for applications that follow the [XDG base directory specification](http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html), such as neovim.
 
-Next, the isntall script will perform a check to see if it is running on an OSX machine. If so, it will install Homebrew if it is not currently installed and will install the homebrew packages listed in [`brew.sh`](install/brew.sh). Then, it will run [`osx.sh`](install/osx.sh) and change some OSX configurations. This file is pretty well documented and so it is advised that you __read through and comment out any changes you do not want__. Next, the script will call [`install/nvm.sh`](install/nvm.sh) to install Node.js (stable) using nvm.
+Next, the install script will perform a check to see if it is running on an OSX machine. If so, it will install Homebrew if it is not currently installed and will install the homebrew packages listed in [`brew.sh`](install/brew.sh). Then, it will run [`osx.sh`](install/osx.sh) and change some OSX configurations. This file is pretty well documented and so it is advised that you __read through and comment out any changes you do not want__. Next, the script will call [`install/nvm.sh`](install/nvm.sh) to install Node.js (stable) using nvm.
 
 ## ZSH Setup
 
@@ -41,16 +33,8 @@ ZSH is configured in the `zshrc.symlink` file, which will be symlinked to the ho
 * source a `~/.localrc` if it exists so that additional configurations can be made that won't be kept track of in this dotfiles repo. This is good for things like API keys, etc.
 * Add the `~/bin` and `$DOTFILES/bin` directories to the path
 * Setup NVM, RVM, and hub if they exist
-* Set the base16 colorscheme to use for both the terminal (iTerm2) and vim/neovim by exporting the `$THEME` and `$BACKGROUND` environment variables
+* Set the base16 colorscheme to use for both the terminal and vim/neovim by exporting the `$THEME` and `$BACKGROUND` environment variables
 * And more...
-
-### Prompt
-
-The prompt is meant to be simple while still providing a lot of information to the user, particularly about the status of the git project, if the PWD is a git project. This prompt sets `precmd`, `PROMPT` and `RPROMPT`.
-
-![](http://nicknisi.com/share/prompt.png)
-
-The `precmd` shows the current working directory in it and the `RPROMPT` shows the git and suspended jobs info.
 
 #### Prompt Git Info
 
