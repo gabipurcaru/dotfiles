@@ -73,7 +73,7 @@ fi
 
 # Base16 Shell
 # if [ -z "$THEME" ]; then
-    export THEME="base16-atelierlakeside"
+    export THEME="base16-atelierseaside"
 # fi
 if [ -z "$BACKGROUND" ]; then
     export BACKGROUND="dark"
